@@ -9,6 +9,7 @@ const buildLinkClass = ({ isActive }) => {
 const Header = () => {
   return (
     <header className={s.header}>
+      <h3>goit-react-hw-05</h3>
       <nav>
         <ul className={s.nav}>
           <li>
@@ -16,7 +17,6 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-
           <li>
             <NavLink className={buildLinkClass} to="/movies">
               Movies
@@ -29,7 +29,6 @@ const Header = () => {
           </li> */}
         </ul>
       </nav>
-      <h3>goit-react-hw-05</h3>
     </header>
   );
 };

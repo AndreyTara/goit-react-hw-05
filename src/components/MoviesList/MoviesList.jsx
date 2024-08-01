@@ -44,7 +44,10 @@ const MoviesList = ({ items = [] }) => {
                 <p className={css.info}>Title:{item.title}</p>
 
                 <p className={css.info}>
-                  {item.release_date ? `date: ${item.release_date}` : ""}
+                  Release date:
+                  {item.release_date
+                    ? ` ${item.release_date}`
+                    : " not specified"}
                 </p>
               </div>
             </div>
