@@ -5,7 +5,8 @@
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
-  background-color: teal;
+  background-color: #969696;
+  /* background-color: teal; */
   color: white;
   /* background-color: #3747ac; */
   font-size: 24px;
@@ -27,5 +28,5 @@
 }
 
 .active {
-  color: black;
+  color: red;
 }

@@ -8,34 +8,24 @@ import Header from "./Header/Header.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Movies from "./pages/Movies/Movies.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import MovieDetails from "./MovieDetails/MovieDetails.jsx";
+import Credits from "./Credits/Credits.jsx";
+import Reviews from "./Reviews/Reviews.jsx";
 
+// import MovieDetails from "./MovieDetails/MovieDetails.jsx";
+import HomeDetails from "./HomeDetails/HomeDetails.jsx";
 function App() {
-  // const [items, setItems] = useState([]);
-  // const [query, setQuery] = useState("star");
-  // const [page, setPage] = useState(1);
-  // const [totalPages, setTotalPages] = useState(0);
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const response = await fetchData({ url, query, page });
-  //       setItems((pref) => [...pref, ...response.results]);
-  //       setTotalPages(response.total_pages);
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //     }
-  //   };
-  //   getData();
-  // }, [page, query, url]);
   return (
     <div className={css.root}>
       <Header />
       <Routes>
+        <Route path="/about" element={<h2>About my favorit site</h2>} />
         <Route path="/" element={<Home />} />
+        <Route path="/:itemId" element={<HomeDetails />}>
+          <Route path="credits" element={<Credits />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies:movieId" element={<MovieDetails />} />
+        {/* <Route path="/movies/:movieId" element={<MovieDetails />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
@@ -43,3 +33,7 @@ function App() {
 }
 
 export default App;
+
+//http://localhost:5173/users/1
+//http://localhost:5173/users/2
+//http://localhost:5173/users/33

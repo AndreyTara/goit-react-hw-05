@@ -1,20 +1,25 @@
-import s from "./Header.module.css";
+import css from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 
 const buildLinkClass = ({ isActive }) => {
-  return clsx(s.link, isActive && s.active);
+  return clsx(css.link, isActive && css.active);
 };
 
 const Header = () => {
   return (
-    <header className={s.header}>
+    <header className={css.header}>
       <h3>goit-react-hw-05</h3>
       <nav>
-        <ul className={s.nav}>
+        <ul className={css.nav}>
           <li>
             <NavLink className={buildLinkClass} to="/">
               Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={buildLinkClass} to="/about">
+              About
             </NavLink>
           </li>
           <li>
