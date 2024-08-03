@@ -14,8 +14,6 @@ const Credits = () => {
       try {
         const response = await fetchCredits({ id });
         setActors(response.cast);
-        // setActors(response.crew);
-        // console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -25,7 +23,7 @@ const Credits = () => {
 
   return (
     <div className={css.wrap}>
-      <h2>Crew #{actors.length}</h2>
+      <h2>Cast #{actors.length}</h2>
       <ul className={css.list}>
         {actors.map(({ id, character, name, profile_path }) => {
           return (
@@ -36,8 +34,11 @@ const Credits = () => {
                   src={profile_path ? `${startLinkPic}${profile_path}` : picDef}
                   alt={name}
                 />
-                <h4>{name}</h4>
-                <p>{character}</p>
+                {!profile_path && <h6 className={css.noPhoto}>No photo ..</h6>}
+                <div className={css.info}>
+                  <h4>{name}</h4>
+                  <p>{character}</p>
+                </div>
               </div>
             </li>
           );
