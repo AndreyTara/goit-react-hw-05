@@ -8,22 +8,28 @@ import css from "./Reviews.module.css";
 const Reviews = () => {
   const params = useParams();
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const id = params.itemId;
   useEffect(() => {
     const getData = async () => {
       try {
+        setIsLoading(true);
         const response = await fetchReviews({ id });
         setReviews(response.results);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     getData();
   }, [id]);
-
+  if (!items && isLoading) {
+    return <h3>Loading...</h3>;
+  }
   return (
     <div className={css.wrap}>
-      <h2>Cast #{reviews.length}</h2>
+      <h2>Reviews #{reviews.length}</h2>
       <ul className={css.list}>
         {reviews.map(
           ({ id, url, author, content, author_details: { avatar_path } }) => {
