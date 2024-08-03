@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import css from "./HomeList.module.css";
 import React from "react";
+
 const HomeList = ({ items }) => {
   const location = useLocation();
   return (
