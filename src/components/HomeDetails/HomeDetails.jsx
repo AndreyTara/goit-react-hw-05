@@ -12,24 +12,27 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 const HomeDetails = () => {
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
   const id = params.itemId;
   useEffect(() => {
     const getData = async () => {
       try {
+        setIsLoading(true);
         const response = await fetchDetails({ id });
         setItem(response);
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       } finally {
+        setIsLoading(false);
       }
     };
     getData();
   }, [id]);
 
-  if (!item && isLoading) {
+  if (item.length < 1 && isLoading) {
     return <h3>loading...</h3>;
   }
   return (
