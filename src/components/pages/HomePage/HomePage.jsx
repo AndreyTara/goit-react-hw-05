@@ -1,6 +1,6 @@
-import css from "./Home.module.css";
+import css from "./HomePage.module.css";
 import React from "react";
-import HomeList from "../../HomeList/HomeList";
+import HomeList from "../../HomeList/HomeList.jsx";
 
 import { useState, useEffect } from "react";
 import { fetchNews } from "../../services/api.js";

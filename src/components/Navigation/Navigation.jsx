@@ -1,4 +1,4 @@
-import css from "./Header.module.css";
+import css from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 
@@ -18,20 +18,11 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={buildLinkClass} to="/about">
-              About
-            </NavLink>
-          </li>
-          <li>
             <NavLink className={buildLinkClass} to="/movies">
               Movies
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink className={buildLinkClass} to="/about">
-              About
-            </NavLink>
-          </li> */}
+          s
         </ul>
       </nav>
     </header>

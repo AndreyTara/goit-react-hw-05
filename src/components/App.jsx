@@ -4,27 +4,27 @@
 
 import { Route, Routes } from "react-router-dom";
 import css from "./App.module.css";
-import Header from "./Header/Header.jsx";
-import Home from "./pages/Home/Home.jsx";
-import Movies from "./pages/Movies/Movies.jsx";
+import Navigation from "./Navigation/Navigation.jsx";
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import MoviesPage from "./pages/MoviesPage/MoviesPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Credits from "./Credits/Credits.jsx";
 import Reviews from "./Reviews/Reviews.jsx";
 
-// import MovieDetails from "./MovieDetails/MovieDetails.jsx";
 import HomeDetails from "./HomeDetails/HomeDetails.jsx";
 function App() {
   return (
     <div className={css.root}>
-      <Header />
+      <Navigation />
       <Routes>
         <Route path="/about" element={<h2>About my favorit site</h2>} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/:itemId" element={<HomeDetails />}>
           <Route path="credits" element={<Credits />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        <Route path="/movies" element={<Movies />} />
+
+        <Route path="/movies" element={<MoviesPage />} />
         {/* <Route path="/movies/:movieId" element={<MovieDetails />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
