@@ -16,7 +16,6 @@ const Home = () => {
         setItems((pref) => [...pref, ...response.results]);
       } catch (error) {
         console.log(error);
-        setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
