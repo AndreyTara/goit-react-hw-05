@@ -1,7 +1,7 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.headers.common["Authorization"] =
-  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjI1MTVjYzNjNTBjMjBlODRjMTliYjc5ZjJiODE4ZCIsIm5iZiI6MTcyMjYzMTk0Ny4xMTQxNTIsInN1YiI6IjY2NThhZGQzZDlmOTE0ZjdkMDY3YzFkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hmiZScs2nOmyjgPyBxoVxrHOE41Eh7oVbt5QykEKVpY";
+  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjI1MTVjYzNjNTBjMjBlODRjMTliYjc5ZjJiODE4ZCIsIm5iZiI6MTcyMjc2NjM1MC4wNjYzMjMsInN1YiI6IjY2NThhZGQzZDlmOTE0ZjdkMDY3YzFkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.biqNrCm2DNpPNz3pJcac6QWomAlPPSsTGAJEbI4xUG4";
 
 export const fetchTrending = async () => {
   // period = 'day' or 'week'
@@ -22,6 +22,14 @@ export const fetchCredits = async ({ id }) => {
 export const fetchReviews = async ({ id, page = 1 }) => {
   const { data } = await axios.get(
     `/movie/${id}/reviews?language=en-US&page=${page}`
+  );
+  return data;
+};
+
+export const fetchSearchByQuery = async ({ query }) => {
+  // //'https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1'
+  const { data } = await axios.get(
+    `/search/movie?query=${query}&include_adult=false&language=en-US&page=1`
   );
   return data;
 };

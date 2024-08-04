@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import css from "./MovieList.module.css";
 import React from "react";
 import { startLinkPic } from "../services/const.js";
+import picDef from "../../assets/grey.jpg";
 
 const MovieList = ({ items }) => {
   const location = useLocation();
@@ -15,7 +16,7 @@ const MovieList = ({ items }) => {
               <NavLink to={`/movies/${id.toString()}}`}>
                 <img
                   className={css.img}
-                  src={`${startLinkPic}${poster_path}`}
+                  src={poster_path ? `${startLinkPic}${poster_path}` : picDef}
                   alt={title}
                 />
                 <p className={css.info}>Title:{title}</p>

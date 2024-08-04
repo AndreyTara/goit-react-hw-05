@@ -18,15 +18,11 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 400px;
 }
 
 @media screen and (max-width: 768px) {
   .imgBox {
     display: unset;
-  }
-  .box {
-    max-width: unset;
   }
 }
 .info {
