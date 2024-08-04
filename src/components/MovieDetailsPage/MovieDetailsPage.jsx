@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams, NavLink, Outlet } from "react-router-dom";
-import { fetchDetails } from "../../components/services/api.js";
+import { fetchDetails } from "../services/api.js";
 import { useState, useEffect } from "react";
 import { startLinkPic } from "../services/const.js";
-import css from "./HomeDetails.module.css";
+import css from "./MovieDetailsPage.module.css";
 import picDef from "../../assets/grey.jpg";
 import clsx from "clsx";
 
@@ -11,11 +11,11 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-const HomeDetails = () => {
+const MovieDetailsPage = () => {
   const [item, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
-  const id = params.itemId;
+  const id = params.movieId;
   useEffect(() => {
     const getData = async () => {
       try {
@@ -24,7 +24,6 @@ const HomeDetails = () => {
         setItem(response);
       } catch (error) {
         console.log(error);
-        setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
@@ -35,19 +34,22 @@ const HomeDetails = () => {
   if (item.length < 1 && isLoading) {
     return <h3>loading...</h3>;
   }
+
   return (
     <div className={css.wrap}>
-      <img
-        className={css.img}
-        src={item.poster_path ? `${startLinkPic}${item.poster_path}` : picDef}
-        alt={item.title}
-      />
-      <div className={css.box}>
-        <h2 className={css.info}>Title:{item.title}</h2>
-        <p className={css.info}>
-          Release date:
-          {item.release_date ? ` ${item.release_date}` : " not specified"}
-        </p>
+      <div className={css.imgBox}>
+        <img
+          className={css.img}
+          src={item.poster_path ? `${startLinkPic}${item.poster_path}` : picDef}
+          alt={item.title}
+        />
+        <div className={css.box}>
+          <h2 className={css.info}>Title:{item.title}</h2>
+          <p className={css.info}>
+            Release date:
+            {item.release_date ? ` ${item.release_date}` : "Not specified."}
+          </p>
+        </div>
       </div>
       <div className={css.boxBtn}>
         <h2>Addition information</h2>
@@ -69,6 +71,6 @@ const HomeDetails = () => {
   );
 };
 
-export default HomeDetails;
+export default MovieDetailsPage;
 
 // https://localhost:5173/

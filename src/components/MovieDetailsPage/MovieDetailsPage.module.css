@@ -1,12 +1,18 @@
 .wrap {
-  padding: 10px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+.imgBox {
+  display: flex;
+  padding: 10px;
   gap: 10px;
 }
 .img {
   width: 300px;
   height: 450px;
+  display: inline;
 }
 .box {
   display: flex;
