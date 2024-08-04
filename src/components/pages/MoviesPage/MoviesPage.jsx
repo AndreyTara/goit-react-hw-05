@@ -37,13 +37,14 @@ const MoviesPage = () => {
 
   const onHandleSubmit = (value) => {
     setSearchParams({ q: value });
+    setIsError(false);
   };
 
   return (
     <>
       <MovieSearch onHandleSubmit={onHandleSubmit} />
       {isLoading && <p>Loading...</p>}
-      {(items.length < 1 || isError) && (
+      {(items?.length < 1 || isError) && (
         <p>Empty data or error fetch... try again...</p>
       )}
       {items.length > 1 && <MovieList items={items} />}
