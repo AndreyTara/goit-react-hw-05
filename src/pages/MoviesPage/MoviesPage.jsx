@@ -1,9 +1,12 @@
 import { useSearchParams } from "react-router-dom";
-import MovieSearch from "../../MovieSearch/MovieSearch";
-import { fetchSearchByQuery, fetchTrending } from "../../services/api";
+import {
+  fetchSearchByQuery,
+  fetchTrending,
+} from "../../components/services/api";
 import css from "./MoviesPage.module.css";
 import React, { useEffect, useState } from "react";
-import MovieList from "../../MovieList/MovieList";
+import MovieSearch from "../../components/MovieSearch/MovieSearch";
+import MovieList from "../../components/MovieList/MovieList";
 
 const MoviesPage = () => {
   const [items, setItems] = useState([{}]);
