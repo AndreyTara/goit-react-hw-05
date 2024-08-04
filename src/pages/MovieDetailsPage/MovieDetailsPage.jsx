@@ -56,7 +56,11 @@ const MovieDetailsPage = () => {
           </h2>
           <p className={css.boxSubTitle}>
             Users average:
-            <i>{vote_average ? ` ${vote_average * 10}%` : "Not specified."}</i>
+            <i>
+              {vote_average
+                ? ` ${(vote_average * 10).toFixed(2)}%`
+                : "Not specified."}
+            </i>
           </p>
           <h3 className={css.boxSubTitle}>Overview:</h3>
           <p className={css.info}>
