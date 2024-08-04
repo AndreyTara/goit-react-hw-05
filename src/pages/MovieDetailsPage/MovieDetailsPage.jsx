@@ -83,12 +83,12 @@ const MovieDetailsPage = () => {
         <h2>Addition information</h2>
         <ul className={css.list}>
           <li className={css.item}>
-            <NavLink to="credits" className={buildLinkClass}>
+            <NavLink to="credits" className={buildLinkClass} state={location}>
               Credits
             </NavLink>
           </li>
           <li>
-            <NavLink to="reviews" className={buildLinkClass}>
+            <NavLink to="reviews" className={buildLinkClass} state={location}>
               Reviews
             </NavLink>
           </li>

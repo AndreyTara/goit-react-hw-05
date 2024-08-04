@@ -12,8 +12,8 @@ const MovieList = ({ items }) => {
       <ul className={css.list}>
         {items.map(({ id, poster_path, title }) => {
           return (
-            <li className={css.item} key={id} state={location}>
-              <NavLink to={`/movies/${id.toString()}}`}>
+            <li className={css.item} key={id}>
+              <NavLink to={`/movies/${id.toString()}}`} state={location}>
                 <img
                   className={css.img}
                   src={poster_path ? `${startLinkPic}${poster_path}` : picDef}
