@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, useRef } from "react";
 import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
 import { fetchDetails } from "../../components/services/api.js";
 import { startLinkPic } from "../../components/services/const.js";
@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import css from "./MovieDetailsPage.module.css";
 import picDef from "../../assets/grey.jpg";
 import clsx from "clsx";
-
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
@@ -17,8 +16,8 @@ const MovieDetailsPage = () => {
   const params = useParams();
   const id = params.movieId;
   const location = useLocation();
-  const previousLocation = location.state ?? "/movies";
-
+  // const previousLocation = location.state ?? "/movies";
+  const goBackRef = useRef(location?.state ?? "/movies");
   useEffect(() => {
     const getData = async () => {
       try {
@@ -41,7 +40,7 @@ const MovieDetailsPage = () => {
     item;
   return (
     <div className={css.wrap}>
-      <NavLink className={css.goBackLink} to={previousLocation}>
+      <NavLink className={css.goBackLink} to={goBackRef.current}>
         Go back
       </NavLink>
       <div className={css.imgBox}>
@@ -80,7 +79,7 @@ const MovieDetailsPage = () => {
         </div>
       </div>
       <div className={css.boxBtn}>
-        <h2>Addition information</h2>
+        <h2>Addition information:</h2>
         <ul className={css.list}>
           <li className={css.item}>
             <NavLink to="credits" className={buildLinkClass} state={location}>
@@ -93,7 +92,9 @@ const MovieDetailsPage = () => {
             </NavLink>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );
