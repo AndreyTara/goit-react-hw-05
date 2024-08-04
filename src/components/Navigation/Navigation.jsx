@@ -9,7 +9,7 @@ const buildLinkClass = ({ isActive }) => {
 const Header = () => {
   return (
     <header className={css.header}>
-      <h3>goit-react-hw-05</h3>
+      <h1 className={css.vh}>goit-react-hw-05:Routing Author:Andrii Tara</h1>
       <nav>
         <ul className={css.nav}>
           <li>
