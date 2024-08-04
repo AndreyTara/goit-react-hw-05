@@ -3,7 +3,7 @@ import React from "react";
 import MovieList from "../../MovieList/MovieList.jsx";
 
 import { useState, useEffect } from "react";
-import { fetchNews } from "../../services/api.js";
+import { fetchTrending } from "../../services/api.js";
 
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -12,7 +12,7 @@ const Home = () => {
     const getData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetchNews();
+        const response = await fetchTrending();
         setItems((pref) => [...pref, ...response.results]);
       } catch (error) {
         console.log(error);
@@ -26,11 +26,10 @@ const Home = () => {
   if (items.length < 1 || isLoading) {
     return <h3>Loading...</h3>;
   }
-
   return (
     <div>
       <h2>Home</h2>
-      <MovieList items={items} />
+      {items.length > 0 ? <MovieList items={items} /> : <p>Loading...</p>}
     </div>
   );
 };
