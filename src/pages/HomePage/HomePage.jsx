@@ -1,9 +1,9 @@
 import css from "./HomePage.module.css";
 import React from "react";
-import MovieList from "../../MovieList/MovieList.jsx";
+import MovieList from "../../components/MovieList/MovieList.jsx";
 
 import { useState, useEffect } from "react";
-import { fetchTrending } from "../../services/api.js";
+import { fetchTrending } from "../../components/services/api.js";
 
 const Home = () => {
   const [items, setItems] = useState([]);

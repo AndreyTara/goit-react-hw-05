@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
-import { fetchDetails } from "../../services/api.js";
+import { fetchDetails } from "../../components/services/api.js";
+import { startLinkPic } from "../../components/services/const.js";
 import { useState, useEffect } from "react";
-import { startLinkPic } from "../../services/const.js";
 import css from "./MovieDetailsPage.module.css";
-import picDef from "../../../assets/grey.jpg";
+import picDef from "../../assets/grey.jpg";
 import clsx from "clsx";
 
 const buildLinkClass = ({ isActive }) => {
