@@ -1,6 +1,6 @@
 import css from "./HomePage.module.css";
 import React from "react";
-import HomeList from "../../HomeList/HomeList.jsx";
+import MovieList from "../../MovieList/MovieList.jsx";
 
 import { useState, useEffect } from "react";
 import { fetchNews } from "../../services/api.js";
@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div>
       <h2>Home</h2>
-      <HomeList items={items} />
+      <MovieList items={items} />
     </div>
   );
 };

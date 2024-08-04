@@ -9,7 +9,7 @@ const Reviews = () => {
   const params = useParams();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const id = params.itemId;
+  const id = params.movieId;
   useEffect(() => {
     const getData = async () => {
       try {
@@ -24,7 +24,8 @@ const Reviews = () => {
     };
     getData();
   }, [id]);
-  if (!items && isLoading) {
+
+  if (reviews.length < 1 && isLoading) {
     return <h3>Loading...</h3>;
   }
   return (

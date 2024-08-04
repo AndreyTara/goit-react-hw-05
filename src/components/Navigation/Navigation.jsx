@@ -22,7 +22,6 @@ const Header = () => {
               Movies
             </NavLink>
           </li>
-          s
         </ul>
       </nav>
     </header>
