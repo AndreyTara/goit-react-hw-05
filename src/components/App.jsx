@@ -19,13 +19,12 @@ function App() {
       <Routes>
         <Route path="/about" element={<h2>About my favorite site</h2>} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/:movieId" element={<MovieDetailsPage />}>
+
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
           <Route path="credits" element={<Credits />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-
-        <Route path="/movies" element={<MoviesPage />} />
-        {/* <Route path="/movies/:movieId" element={<MovieDetails />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -5,13 +5,26 @@
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
-  background-color: #969696;
+  /* background-color: #969696; */
   /* background-color: teal; */
   color: white;
   /* background-color: #3747ac; */
   font-size: 24px;
   font-weight: 700;
   border-bottom: 1px solid #e8e8e8;
+}
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 .item {
   text-decoration: none;
@@ -22,7 +35,7 @@
   list-style: none;
 }
 .link {
-  color: white;
+  color: black;
   font-weight: 700;
   text-decoration: none;
 }

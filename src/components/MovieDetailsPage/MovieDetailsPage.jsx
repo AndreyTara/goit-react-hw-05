@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
 import { fetchDetails } from "../services/api.js";
 import { useState, useEffect } from "react";
 import { startLinkPic } from "../services/const.js";
@@ -16,6 +16,9 @@ const MovieDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
   const id = params.movieId;
+  const location = useLocation();
+  const previousLocation = location.state ?? "/movies";
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -37,6 +40,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.wrap}>
+      <NavLink className={css.goBackLink} to={previousLocation}>
+        Go back
+      </NavLink>
       <div className={css.imgBox}>
         <img
           className={css.img}

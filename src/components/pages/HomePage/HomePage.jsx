@@ -22,7 +22,8 @@ const Home = () => {
     };
     getData();
   }, []);
-  if (!items && isLoading) {
+
+  if (items.length < 1 || isLoading) {
     return <h3>Loading...</h3>;
   }
 

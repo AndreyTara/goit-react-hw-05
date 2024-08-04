@@ -1,3 +1,7 @@
+# https://axios-http.com/docs/config_defaults
+
+# https://gist.github.com/luxplanjay/6f6936b1bba7afe006fa9317b07b6045
+
 # API https://www.themoviedb.org/talk/6658b25b68635a7fb174e7d2#6658b25c68635a7fb174e7d5
 
 # icon https://fontawesome.com/icons/video?f=classic&s=regular
