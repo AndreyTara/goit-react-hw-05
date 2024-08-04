@@ -1,0 +1,16 @@
+.containerForm {
+  padding: 10px;
+}
+.form {
+  font-size: 20px;
+}
+.inputSearchForm {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: inherit;
+}
+.btnSearchForm {
+  margin: 5px;
+  padding: 5px;
+  font-size: inherit;
+}
