@@ -37,21 +37,15 @@ const MovieReviews = () => {
             return (
               <li className={css.item} key={id}>
                 <div>
-                  <img
-                    className={css.img}
-                    src={avatar_path ? `${startLinkPic}${avatar_path}` : picDef}
-                    alt={author}
-                  />
-                  {!avatar_path && <h6 className={css.noPhoto}>No photo ..</h6>}
                   <div className={css.info}>
-                    <h4>{author}</h4>
+                    <h3>{author}</h3>
                     <p>{content}</p>
                     <a
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
                     >
-                      GO link
+                      GO current link
                     </a>
                   </div>
                 </div>
