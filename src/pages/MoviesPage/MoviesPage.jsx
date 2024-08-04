@@ -13,7 +13,7 @@ const MoviesPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("q");
+  const query = searchParams.get("query") ?? "";
 
   useEffect(() => {
     if (!query) {
@@ -38,7 +38,11 @@ const MoviesPage = () => {
   }, [query]);
 
   const onHandleSubmit = (value) => {
-    setSearchParams({ q: value });
+    if (!value) {
+      return setSearchParams({});
+    }
+    searchParams.set("query", value);
+    setSearchParams(searchParams);
     setIsError(false);
   };
 
@@ -49,7 +53,7 @@ const MoviesPage = () => {
       {(items?.length < 1 || isError) && (
         <p>Empty data or error fetch... try again...</p>
       )}
-      {items.length > 1 && <MovieList items={items} />}
+      {items?.length > 1 && <MovieList items={items} />}
     </>
   );
 };

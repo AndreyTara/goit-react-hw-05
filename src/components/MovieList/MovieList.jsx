@@ -19,7 +19,8 @@ const MovieList = ({ items }) => {
                   src={poster_path ? `${startLinkPic}${poster_path}` : picDef}
                   alt={title}
                 />
-                <p className={css.info}>Title:{title}</p>
+                {!poster_path && <p className={css.imgText}>No photo.</p>}
+                <p className={css.info}>{title}</p>
               </NavLink>
             </li>
           );

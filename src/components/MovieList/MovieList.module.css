@@ -14,11 +14,23 @@
   border-radius: 30px;
   font-size: 20px;
   font-weight: 500;
+  position: relative;
 }
 .img {
   width: 290px;
   height: 450px;
   border-radius: 30px;
+}
+.imgText {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
 .info {
   text-align: center;
