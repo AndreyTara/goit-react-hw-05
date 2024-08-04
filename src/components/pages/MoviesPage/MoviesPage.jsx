@@ -6,10 +6,9 @@ import React, { useEffect, useState } from "react";
 import MovieList from "../../MovieList/MovieList";
 
 const MoviesPage = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q");
 
