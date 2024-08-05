@@ -51,8 +51,9 @@ const MoviesPage = () => {
     <>
       <MovieSearch onHandleSubmit={onHandleSubmit} />
       {isLoading && <p>Loading...</p>}
-      {items?.length === 0 && isError && (
-        <p>Empty data or error fetch... try again...</p>
+      {isError && <p>Error fetching data... try again...</p>}
+      {query?.length !== 0 && items?.length === 0 && (
+        <p>No data available...</p>
       )}
       {items?.length !== 0 && <MovieList items={items} />}
     </>
