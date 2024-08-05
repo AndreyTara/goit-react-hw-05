@@ -11,7 +11,9 @@ import { Suspense, lazy } from "react";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage.jsx"));
-const NotFound = lazy(() => import("../pages/NotFound/NotFound.jsx"));
+const NotFoundPage = lazy(() =>
+  import("../pages/NotFoundPage/NotFoundPage.jsx")
+);
 const MovieDetailsPage = lazy(() =>
   import("../pages/MovieDetailsPage/MovieDetailsPage.jsx")
 );
@@ -28,7 +30,7 @@ function App() {
             <Route path="credits" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </div>
