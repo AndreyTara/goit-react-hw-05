@@ -9,7 +9,7 @@ import MovieSearch from "../../components/MovieSearch/MovieSearch";
 import MovieList from "../../components/MovieList/MovieList";
 
 const MoviesPage = () => {
-  const [items, setItems] = useState([{}]);
+  const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,6 +17,7 @@ const MoviesPage = () => {
 
   useEffect(() => {
     if (!query) {
+      setIsError(false);
       setIsLoading(false);
       return;
     }
@@ -50,10 +51,10 @@ const MoviesPage = () => {
     <>
       <MovieSearch onHandleSubmit={onHandleSubmit} />
       {isLoading && <p>Loading...</p>}
-      {(items?.length < 1 || isError) && (
+      {items?.length === 0 && isError && (
         <p>Empty data or error fetch... try again...</p>
       )}
-      {items?.length > 1 && <MovieList items={items} />}
+      {items?.length !== 0 && <MovieList items={items} />}
     </>
   );
 };
