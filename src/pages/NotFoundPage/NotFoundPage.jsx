@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import css from "./NotFound.module.css";
+import css from "./NotFoundPage.module.css";
 import React from "react";
 import clsx from "clsx";
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-const NotFound = () => {
+const NotFoundPage = () => {
   return (
     <div>
       <p>Page not found... </p>
@@ -17,4 +17,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;
